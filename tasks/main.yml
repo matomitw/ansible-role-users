@@ -28,6 +28,10 @@
 # install packages
 - ansible.builtin.include_tasks: install.yml
 
+- name: Debug users variable
+  ansible.builtin.debug:
+    var: users
+
 # create users and groups
 - ansible.builtin.include_tasks: manage_groups.yml
   loop: "{{ users | dict2items }}"
