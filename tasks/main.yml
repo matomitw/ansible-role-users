@@ -1,4 +1,10 @@
 ---
+
+- name: Debug users variable
+  ansible.builtin.debug:
+    var: users
+
+
 - name: Gather OS specific variables
   ansible.builtin.include_vars: "{{ loop_vars }}"
   loop: "{{ query('first_found', params) }}"
