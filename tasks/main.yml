@@ -1,4 +1,10 @@
 ---
+
+- name: Include users variable
+  include_vars:
+    file: "{{ playbook_dir }}/environments/test/group_vars/apps/claranet_users.yml"
+
+
 - name: Gather OS specific variables
   ansible.builtin.include_vars: "{{ loop_vars }}"
   loop: "{{ query('first_found', params) }}"
