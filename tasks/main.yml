@@ -1,8 +1,5 @@
 ---
 
-- name: Include users variable
-  include_vars:
-    file: "{{ playbook_dir }}/environments/test/group_vars/apps/claranet_users.yml"
 
 
 - name: Gather OS specific variables
@@ -25,7 +22,7 @@
 
 - name: Include users variable
   include_vars:
-    file: vars/users.yml
+    file: "{{ playbook_dir }}/../../../environments/{{ environment }}/group_vars/apps/claranet_users.yml"
 
 - name: "Update APT cache"
   ansible.builtin.apt:
